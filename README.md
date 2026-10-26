@@ -1,11 +1,16 @@
 # GROCAES
 
-Aplikasi web untuk **skrining awal pertumbuhan anak usia 0–5 tahun** berdasarkan Standar Pertumbuhan Anak WHO (2006). GROCAES (nama proyek: `pantau-tumbuh`) juga menyediakan artikel edukasi tentang gizi dan pencegahan stunting serta konsultasi daring lewat WhatsApp. Aplikasi ini mendukung **SDG 2** (tanpa kelaparan, termasuk menekan stunting) dan **SDG 3** (kesehatan dan kesejahteraan).
+**Cek Gizi & Cegah Stunting Anak 0–5 Tahun**
+
+🌐 **Demo langsung: <https://grocaes.vercel.app>**
+
+Aplikasi web untuk **skrining awal pertumbuhan anak usia 0–5 tahun** berdasarkan Standar Pertumbuhan Anak WHO (2006). GROCAES juga menyediakan artikel edukasi tentang gizi dan pencegahan stunting serta konsultasi daring lewat WhatsApp. Aplikasi ini mendukung **SDG 2** (tanpa kelaparan, termasuk menekan stunting) dan **SDG 3** (kesehatan dan kesejahteraan).
 
 > **Penting:** GROCAES adalah alat **skrining awal, bukan diagnosis**. Hasilnya perlu dipastikan oleh tenaga kesehatan (bidan, dokter, atau puskesmas).
 
 ## Daftar isi
 
+- [Tampilan](#tampilan)
 - [Fitur](#fitur)
 - [Teknologi](#teknologi)
 - [Prasyarat](#prasyarat)
@@ -22,6 +27,16 @@ Aplikasi web untuk **skrining awal pertumbuhan anak usia 0–5 tahun** berdasark
 - [Privasi](#privasi)
 - [Pemecahan masalah](#pemecahan-masalah)
 - [Catatan](#catatan)
+
+## Tampilan
+
+| Beranda | Hasil kalkulator gizi |
+| --- | --- |
+| ![Beranda GROCAES](docs/screenshots/beranda.jpg) | ![Hasil kalkulator gizi](docs/screenshots/kalkulator.jpg) |
+
+| Daftar artikel edukasi | Halaman baca artikel |
+| --- | --- |
+| ![Daftar artikel edukasi](docs/screenshots/edukasi.jpg) | ![Halaman baca artikel](docs/screenshots/artikel.jpg) |
 
 ## Fitur
 
@@ -48,46 +63,76 @@ Fitur pendukung:
 
 ## Prasyarat
 
+**Untuk pengguna (membuka web yang sudah dihosting)**
+
+| Kebutuhan | Keterangan |
+| --- | --- |
+| Peramban modern | Chrome, Edge, Firefox, atau Safari versi terbaru, di HP maupun komputer |
+| Internet | Hanya diperlukan saat membuka pertama kali. Setelah itu aplikasi bisa dipakai tanpa internet. |
+
+Tidak perlu membuat akun dan tidak ada yang perlu diunduh.
+
+**Untuk pengembang atau pengelola (opsional, bila ingin mengubah atau menguji kode)**
+
 | Kebutuhan | Versi | Untuk apa |
 | --- | --- | --- |
-| Peramban modern (Chrome, Edge, Firefox, Safari) | terbaru | Membuka aplikasi |
 | Python 3 | 3.8 atau lebih baru | Server statis lokal |
-| Node.js | 18 atau lebih baru | Menjalankan tes (opsional) |
-| `openpyxl` (paket Python) | terbaru | Membuat ulang data WHO (opsional) |
-
-Aplikasi tidak bisa dibuka dengan klik dua kali pada `index.html` (`file://`) karena memakai ES modules dan memuat berkas data lewat `fetch`. Gunakan server statis seperti pada langkah di bawah.
+| Node.js | 18 atau lebih baru | Menjalankan tes |
+| `openpyxl` (paket Python) | terbaru | Membuat ulang data WHO |
 
 ## Instalasi
 
-Tidak ada langkah `npm install` karena proyek ini tidak memiliki dependensi.
+Web GROCAES sudah dihosting di Vercel, jadi **pengguna tidak perlu menginstal apa pun**. Cukup buka alamat web di peramban:
+https://grocaes.vercel.app
+
+### Memasang ke layar utama (opsional)
+
+GROCAES adalah PWA, sehingga dapat dipasang seperti aplikasi biasa agar lebih cepat dibuka dan tetap berjalan tanpa internet.
+
+| Perangkat | Langkah |
+| --- | --- |
+| Android (Chrome) | Buka web, tekan menu **⋮**, lalu pilih **Instal aplikasi** atau **Tambahkan ke layar utama**. |
+| iPhone/iPad (Safari) | Buka web, tekan tombol **Bagikan**, lalu pilih **Tambah ke Layar Utama**. |
+| Komputer (Chrome atau Edge) | Klik ikon **Instal** di ujung kanan kolom alamat, lalu pilih **Instal**. |
+
+Setelah terpasang, ikon **GROCAES** muncul di layar utama atau daftar aplikasi.
+
+### Instalasi untuk pengembang (opsional)
+
+Langkah ini hanya perlu bila Anda ingin menjalankan salinan lokal untuk mengubah atau menguji kode. Tidak ada langkah `npm install` karena proyek ini tidak memiliki dependensi.
 
 1. Dapatkan kode proyek, lalu masuk ke foldernya.
 
    ```bash
    # bila dari berkas zip
-   unzip GROCAES-edukasi.zip
-   cd pantau-tumbuh
+   unzip GROCAES.zip
+   cd GROCAES
 
-   # bila dari Git
-   git clone <url-repositori>
-   cd pantau-tumbuh
+   # bila dari Git (ganti <username> dengan akun GitHub pemilik repositori)
+   git clone https://github.com/<username>/grocaes.git
+   cd grocaes
    ```
 
-2. Pastikan Python 3 terpasang.
+2. Pastikan Python 3 terpasang (dan Node.js 18+ bila ingin menjalankan tes).
 
    ```bash
    python3 --version
-   ```
-
-3. (Opsional) Pastikan Node.js 18+ terpasang bila ingin menjalankan tes.
-
-   ```bash
    node --version
    ```
 
 ## Menjalankan aplikasi
 
-1. Jalankan server statis dari folder `pantau-tumbuh`:
+### Membuka web yang sudah dihosting
+
+1. Buka **<https://grocaes.vercel.app>** di peramban HP atau komputer, atau buka ikon GROCAES bila sudah dipasang.
+2. Pilih menu **Kalkulator Gizi**, **Edukasi**, atau **Konsultasi** (cara pakainya ada di [Panduan penggunaan](#panduan-penggunaan)).
+3. Pertama kali dibuka, pastikan terhubung ke internet agar seluruh berkas tersimpan di perangkat. Setelahnya, aplikasi tetap berjalan walau offline.
+
+Bila tampilan belum berubah setelah web diperbarui, muat ulang halaman (di komputer: `Ctrl + Shift + R`). Pembaruan biasanya muncul otomatis pada kunjungan berikutnya.
+
+### Menjalankan salinan lokal (pengembang)
+
+1. Jalankan server statis dari folder `GROCAES`:
 
    ```bash
    python3 -m http.server 8080
@@ -99,7 +144,13 @@ Tidak ada langkah `npm install` karena proyek ini tidak memiliki dependensi.
 
 3. Hentikan server dengan `Ctrl + C`.
 
-Untuk mencoba dari HP di jaringan Wi-Fi yang sama, buka `http://<alamat-IP-komputer>:8080` di HP. Perlu diingat bahwa mode offline (service worker) hanya aktif di `https://` atau `localhost`, sehingga tidak aktif pada alamat IP biasa.
+Aplikasi tidak bisa dibuka dengan klik dua kali pada `index.html` (`file://`) karena memakai ES modules dan memuat berkas data lewat `fetch`. Untuk mencoba dari HP di jaringan Wi-Fi yang sama, buka `http://<alamat-IP-komputer>:8080` di HP. Mode offline (service worker) hanya aktif di `https://` atau `localhost`, jadi tidak aktif pada alamat IP biasa.
+
+### Memperbarui web yang sudah dihosting
+
+1. Ubah berkas di salinan lokal dan cek hasilnya dengan langkah di atas.
+2. Naikkan versi `CACHE` di `sw.js` (lihat [Konfigurasi](#konfigurasi)).
+3. Commit dan push perubahan ke GitHub. Vercel otomatis memublikasikan versi baru ke <https://grocaes.vercel.app> (lihat [Publikasi](#publikasi-deployment)).
 
 ## Panduan penggunaan
 
@@ -230,12 +281,13 @@ Skrip ini memverifikasi tiap tabel: nilai SD yang dihitung ulang dari L, M, S ha
 ## Struktur proyek
 
 ```text
-pantau-tumbuh/
+GROCAES/
 ├── index.html            halaman tunggal dengan 4 tampilan (home, kalkulator, edukasi, konsultasi)
 ├── manifest.json         manifest PWA
 ├── sw.js                 service worker (cache offline)
 ├── package.json          skrip npm: test dan serve
 ├── logofix.png           logo
+├── docs/screenshots/     tangkapan layar untuk README
 ├── cover.jpeg            gambar beranda
 ├── img/                  ikon fitur beranda; img/tanda/ berisi ikon tanda stunting;
 │                         img/icons/ berisi ikon PWA persegi (192, 512, maskable, apple-touch, favicon)
@@ -264,11 +316,29 @@ Alur singkat: `index.html` memuat `js/main.js` → memuat data WHO (`core/data.j
 
 ## Publikasi (deployment)
 
-Karena berupa situs statis, seluruh isi folder `pantau-tumbuh` cukup diunggah ke layanan hosting statis (GitHub Pages, Netlify, Cloudflare Pages, atau server web biasa). Syaratnya:
+GROCAES berupa situs statis tanpa proses build, jadi cukup disajikan apa adanya. Versi yang sedang berjalan ada di **<https://grocaes.vercel.app>** (di-hosting di [Vercel](https://vercel.com)).
 
-- Sajikan lewat **HTTPS** agar service worker dan pemasangan PWA berfungsi.
-- Pastikan `data/who-lms.json` ikut terunggah dan dapat diakses.
-- Naikkan versi `CACHE` di `sw.js` pada setiap rilis.
+### Memublikasikan ke Vercel
+
+1. Unggah proyek ke repositori GitHub. Pastikan `index.html` berada di **akar repositori** (bukan di dalam subfolder).
+2. Di Vercel, pilih **Add New → Project**, lalu impor repositori tersebut.
+3. Isi pengaturan berikut:
+
+   | Pengaturan | Nilai |
+   | --- | --- |
+   | Framework Preset | **Other** |
+   | Build Command | kosongkan |
+   | Output Directory | kosongkan (akar repositori) |
+   | Install Command | kosongkan |
+
+4. Tekan **Deploy**. Vercel menyediakan HTTPS secara otomatis, sehingga service worker dan pemasangan PWA berfungsi.
+5. Setelah itu, setiap `git push` ke cabang utama otomatis memublikasikan versi baru. Nama domain dapat diubah di **Project Settings → Domains**.
+
+### Catatan untuk setiap rilis
+
+- Naikkan versi `CACHE` di `sw.js` (lihat [Konfigurasi](#konfigurasi)) agar pengguna lama menerima versi terbaru.
+- Pastikan `data/who-lms.json` ikut ter-commit dan dapat diakses.
+- Hosting statis lain (GitHub Pages, Netlify, Cloudflare Pages, atau server web biasa) juga bisa dipakai: unggah seluruh isi proyek dan sajikan lewat HTTPS.
 
 ## Privasi
 

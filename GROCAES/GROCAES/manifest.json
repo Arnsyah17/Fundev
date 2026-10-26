@@ -1,0 +1,36 @@
+{
+  "id": "./index.html",
+  "name": "GROCAES: Skrining Gizi dan Tumbuh Kembang Anak",
+  "short_name": "GROCAES",
+  "description": "Skrining awal pertumbuhan anak 0–5 tahun berdasarkan standar WHO, dilengkapi edukasi stunting dan konsultasi.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f6f3ec",
+  "theme_color": "#87cefa",
+  "lang": "id",
+  "categories": [
+    "health",
+    "education"
+  ],
+  "icons": [
+    {
+      "src": "img/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "img/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "img/icons/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

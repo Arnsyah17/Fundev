@@ -85,18 +85,6 @@ Tidak perlu membuat akun dan tidak ada yang perlu diunduh.
 Web GROCAES sudah dihosting di Vercel, jadi **pengguna tidak perlu menginstal apa pun**. Cukup buka alamat web di peramban:
 https://grocaes.vercel.app
 
-### Memasang ke layar utama (opsional)
-
-GROCAES adalah PWA, sehingga dapat dipasang seperti aplikasi biasa agar lebih cepat dibuka dan tetap berjalan tanpa internet.
-
-| Perangkat | Langkah |
-| --- | --- |
-| Android (Chrome) | Buka web, tekan menu **⋮**, lalu pilih **Instal aplikasi** atau **Tambahkan ke layar utama**. |
-| iPhone/iPad (Safari) | Buka web, tekan tombol **Bagikan**, lalu pilih **Tambah ke Layar Utama**. |
-| Komputer (Chrome atau Edge) | Klik ikon **Instal** di ujung kanan kolom alamat, lalu pilih **Instal**. |
-
-Setelah terpasang, ikon **GROCAES** muncul di layar utama atau daftar aplikasi.
-
 ### Instalasi untuk pengembang (opsional)
 
 Langkah ini hanya perlu bila Anda ingin menjalankan salinan lokal untuk mengubah atau menguji kode. Tidak ada langkah `npm install` karena proyek ini tidak memiliki dependensi.
